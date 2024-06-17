@@ -1,22 +1,16 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: Service
 metadata:
   name: netflix-app
   namespace: netflix-app
   labels:
     app: netflix-app
 spec:
-  replicas: 2
+  type: NodePort
+  ports:
+  - port: 80
+    targetPort: 80
+    nodePort: 30007
   selector:
-    matchLabels:
-      app: netflix-app
-  template:
-    metadata:
-      labels:
-        app: netflix-app
-    spec:
-      containers:
-      - name: netflix-app
-        image: akscluster2024.azurecr.io/ottreplica:latest
-        ports:
-        - containerPort: 80
+    app: netflix-app
+
