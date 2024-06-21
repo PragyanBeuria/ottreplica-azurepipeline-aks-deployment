@@ -5,7 +5,7 @@ COPY ./yarn.lock .
 RUN yarn install
 COPY . .
 ARG TMDB_V3_API_KEY
-ENV VITE_APP_TMDB_V3_API_KEY=${TMDB_V3_API_KEY}
+ENV VITE_APP_  O  MDB_V3_API_KEY=${OMDB_V3_API_KEY}
 ENV VITE_APP_API_ENDPOINT_URL="http://www.omdbapi.com/?i=tt3896198&apikey=ecfcd130"
 RUN yarn build
 
