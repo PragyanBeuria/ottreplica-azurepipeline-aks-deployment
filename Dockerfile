@@ -9,7 +9,7 @@ ENV VITE_APP_TMDB_V3_API_KEY=${TMDB_V3_API_KEY}
 ENV VITE_APP_API_ENDPOINT_URL="http://www.omdbapi.com/?i=tt3896198&apikey=ecfcd130"
 RUN yarn build
 
-FROM nginx:stable-alpine
+FROM nginx:1.29.4-alpine3.23
 WORKDIR /usr/share/nginx/html
 RUN rm -rf ./*
 COPY --from=builder /app/dist .
